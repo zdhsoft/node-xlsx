@@ -1,25 +1,26 @@
 <!-- markdownlint-disable no-inline-html -->
 
-# node-xlsx
+# @zdhsoft/nodexlsx
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/node-xlsx">
+  <a href="https://www.npmjs.com/package/@zdhsoft/nodexlsx">
     <img src="https://img.shields.io/npm/v/node-xlsx.svg?style=for-the-badge" alt="npm version" />
   </a>
-  <a href="https://www.npmjs.com/package/node-xlsx">
+  <a href="https://www.npmjs.com/package/@zdhsoft/nodexlsx">
     <img src="https://img.shields.io/npm/dt/node-xlsx.svg?style=for-the-badge" alt="npm total downloads" />
   </a>
-  <a href="https://www.npmjs.com/package/node-xlsx">
+  <a href="https://www.npmjs.com/package/@zdhsoft/nodexlsx">
     <img src="https://img.shields.io/npm/dm/node-xlsx.svg?style=for-the-badge" alt="npm monthly downloads" />
   </a>
-  <a href="https://www.npmjs.com/package/node-xlsx">
+  <a href="https://www.npmjs.com/package/@zdhsoft/nodexlsx">
     <img src="https://img.shields.io/npm/l/node-xlsx.svg?style=for-the-badge" alt="npm license" />
   </a>
   <a href="https://github.com/mgcrea/node-xlsx/actions/workflows/main.yml">
     <img src="https://img.shields.io/github/workflow/status/mgcrea/node-xlsx/main?style=for-the-badge" alt="github main workflow" />
   </a>
 </p>
-
+## 申明
+- 原node-xlsx不支持样式，所以这里将复fork过来后，更新xlsx库和增加样式的功能。
 ## Features
 
 Straightforward excel file parser and builder.
@@ -31,7 +32,7 @@ Straightforward excel file parser and builder.
 ## Install
 
 ```bash
-npm install node-xlsx --save
+npm i @zdhsoft/nodexlsx
 ```
 
 ## Quickstart
@@ -39,8 +40,8 @@ npm install node-xlsx --save
 ### Parse an xlsx file
 
 ```js
-import xlsx from 'node-xlsx';
-// Or var xlsx = require('node-xlsx').default;
+import xlsx from '@zdhsoft/nodexlsx';
+// Or var xlsx = require('@zdhsoft/nodexlsx').default;
 
 // Parse a buffer
 const workSheetsFromBuffer = xlsx.parse(fs.readFileSync(`${__dirname}/myFile.xlsx`));
@@ -51,7 +52,7 @@ const workSheetsFromFile = xlsx.parse(`${__dirname}/myFile.xlsx`);
 ### Build an xlsx file
 
 ```js
-import xlsx from 'node-xlsx';
+import xlsx from '@zdhsoft/nodexlsx';
 // Or var xlsx = require('node-xlsx').default;
 
 const data = [
@@ -66,8 +67,8 @@ var buffer = xlsx.build([{name: 'mySheetName', data: data}]); // Returns a buffe
 ### Custom column width
 
 ```js
-import xlsx from 'node-xlsx';
-// Or var xlsx = require('node-xlsx').default;
+import xlsx from '@zdhsoft/nodexlsx';
+// Or var xlsx = require('@zdhsoft/nodexlsx').default;
 
 const data = [
   [1, 2, 3],
@@ -83,8 +84,8 @@ var buffer = xlsx.build([{name: 'mySheetName', data: data}], {sheetOptions}); //
 ### Spanning multiple rows `A1:A4` in every sheets
 
 ```js
-import xlsx from 'node-xlsx';
-// Or var xlsx = require('node-xlsx').default;
+import xlsx from '@zdhsoft/nodexlsx';
+// Or var xlsx = require('@zdhsoft/nodexlsx').default;
 
 const data = [
   [1, 2, 3],
@@ -101,8 +102,8 @@ var buffer = xlsx.build([{name: 'mySheetName', data: data}], {sheetOptions}); //
 ### Spanning multiple rows `A1:A4` in second sheet
 
 ```js
-import xlsx from 'node-xlsx';
-// Or var xlsx = require('node-xlsx').default;
+import xlsx from '@zdhsoft/nodexlsx';
+// Or var xlsx = require('@zdhsoft/nodexlsx').default;
 
 const dataSheet1 = [
   [1, 2, 3],
@@ -176,7 +177,7 @@ you should include relevant unit tests. Thanks!
 
 - http://olouv.com
 - http://github.com/mgcrea
-
+- http://github.com/zdhsoft
 ## Copyright and license
 
 [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.html)
