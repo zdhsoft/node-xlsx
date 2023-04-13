@@ -1,7 +1,7 @@
 {
   "name": "@zdhsoft/nodexlsx",
   "author": "Olivier Louvignes <olivier@mg-crea.com>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "NodeJS Excel files parser & builder",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -21,7 +21,7 @@
   "repository": "github:zdhsoft/node-xlsx",
   "license": "Apache-2.0",
   "dependencies": {
-    "xlsx": "^0.17.4"
+    "xlsx-js-style": "^1.2.0"
   },
   "devDependencies": {
     "@tsconfig/node10": "^1.0.8",

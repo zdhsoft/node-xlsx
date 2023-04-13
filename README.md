@@ -19,8 +19,9 @@
     <img src="https://img.shields.io/github/workflow/status/mgcrea/node-xlsx/main?style=for-the-badge" alt="github main workflow" />
   </a>
 </p>
-## ����
-- ԭnode-xlsx��֧����ʽ���������ｫ��fork�����󣬸���xlsx���������ʽ�Ĺ��ܡ�
+## 申明
+- 原node-xlsx不支持样式，所以这里将复fork过来后，更新xlsx库和增加样式的功能。
+- 原来默认使用的是xlsx这个包，现在使用xlsx-js-style替换它，但是这个增加了对样式的支持
 ## Features
 
 Straightforward excel file parser and builder.

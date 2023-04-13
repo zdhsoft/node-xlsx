@@ -12,7 +12,7 @@ import {
   utils,
   write,
   WritingOptions,
-} from 'xlsx';
+} from 'xlsx-js-style';
 import {isString} from './helpers';
 import {WorkBook} from './workbook';
 
