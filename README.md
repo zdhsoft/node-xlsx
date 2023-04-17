@@ -23,6 +23,7 @@
 ## 申明
 - 原node-xlsx不支持样式，所以这里将复fork过来后，更新xlsx库和增加样式的功能。
 - 原来默认使用的是xlsx这个包，现在使用xlsx-js-style替换它，但是这个增加了对样式的支持
+- 增加了能单元格类型的导出。
 ## Features
 
 Straightforward excel file parser and builder.
