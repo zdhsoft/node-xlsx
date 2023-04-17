@@ -4,16 +4,16 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@zdhsoft/nodexlsx">
-    <img src="https://img.shields.io/npm/v/node-xlsx.svg?style=for-the-badge" alt="npm version" />
+    <img src="https://img.shields.io/npm/v/@zdhsoft/nodexlsx?style=for-the-badge" alt="npm version" />
   </a>
   <a href="https://www.npmjs.com/package/@zdhsoft/nodexlsx">
-    <img src="https://img.shields.io/npm/dt/node-xlsx.svg?style=for-the-badge" alt="npm total downloads" />
+    <img src="https://img.shields.io/npm/dt/@zdhsoft/nodexlsx?style=for-the-badge" alt="npm total downloads" />
   </a>
   <a href="https://www.npmjs.com/package/@zdhsoft/nodexlsx">
-    <img src="https://img.shields.io/npm/dm/node-xlsx.svg?style=for-the-badge" alt="npm monthly downloads" />
+    <img src="https://img.shields.io/npm/dm/@zdhsoft/nodexlsx?style=for-the-badge" alt="npm monthly downloads" />
   </a>
   <a href="https://www.npmjs.com/package/@zdhsoft/nodexlsx">
-    <img src="https://img.shields.io/npm/l/node-xlsx.svg?style=for-the-badge" alt="npm license" />
+    <img src="https://img.shields.io/npm/l/@zdhsoft/nodexlsx?style=for-the-badge" alt="npm license" />
   </a>
   <a href="https://github.com/mgcrea/node-xlsx/actions/workflows/main.yml">
     <img src="https://img.shields.io/github/workflow/status/mgcrea/node-xlsx/main?style=for-the-badge" alt="github main workflow" />
