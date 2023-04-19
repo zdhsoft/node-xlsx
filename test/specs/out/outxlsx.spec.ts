@@ -1,16 +1,16 @@
-import {TCellType, nodexlsx, CellStyle} from '../../../src';
+import {TCellType, nodexlsx, CellStyle, WorkSheetOptions} from '../../../src';
 import fs from 'fs';
 
 function simpleExcel() {
     console.info('---->开始执行');
-    const sheetOptions = {
+    const sheetOptions: WorkSheetOptions = {
         '!cols': [{wch: 6}, {wch: 30}, {wch: 10}, {wch: 15}, {wch: 10}, {wch: 10}],
         '!merges': [
             {s: {c: 0, r: 0}, e: {c: 2, r: 0}},
             {s: {c: 3, r: 0}, e: {c: 5, r: 0}},
         ],
     };
-    const s = {
+    const s: CellStyle = {
         alignment: {
             horizontal: 'center', // 水平居中
             vertical: 'center', // 垂直居中
@@ -45,9 +45,10 @@ function simpleExcel() {
             horizontal: 'center',
         },
     };
-    const title: TCellType[] = ['序号', '名称', '年级', '任课老师', '学生数量', '已报名数量'];
+    const title: TCellType[] = ['序号', '名称', '年级', {v: '任课老师', s}, '学生数量', '已报名数量'];
     const title1: TCellType[] = [{v: '天下无难事', s: headerStyle}, null, null, '右边', null];
     const value: TCellType[] = [1, 'test', 9, {v: '张老师', s: contentCellStyle}, 10, 99];
+
     const rows: TCellType[][] = [];
     rows.push(title1);
     rows.push(title);
@@ -57,7 +58,6 @@ function simpleExcel() {
     fs.writeFileSync(outFileName, data);
     console.info('生成' + outFileName + ' ok!');
     return true;
-    // process.exit(0);
 }
 
 describe('测试样式', () => {
