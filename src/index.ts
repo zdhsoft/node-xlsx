@@ -1,4 +1,4 @@
-import {
+import xlsxjs, {
     AOA2SheetOpts,
     AutoFilterInfo,
     ColInfo,
@@ -20,8 +20,6 @@ import {
 } from 'xlsx-js-style';
 import {isString} from './helpers';
 import {WorkBook} from './workbook';
-
-export * from 'xlsx-js-style';
 
 export const parse = (mixed: unknown, options: Sheet2JSONOpts & ParsingOptions = {}) => {
     const {dateNF, header = 1, range, blankrows, defval, raw = true, rawNumbers, ...otherOptions} = options;
@@ -154,5 +152,5 @@ export const build = (
     return write(workBook, {bookType, bookSST, type, ...otherWriteOptions});
 };
 
-export const nodexlsx = {parse, parseMetadata, build};
+export const nodexlsx = {parse, parseMetadata, build, ...xlsxjs};
 export default nodexlsx;

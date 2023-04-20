@@ -15,15 +15,19 @@
   <a href="https://www.npmjs.com/package/@zdhsoft/nodexlsx">
     <img src="https://img.shields.io/npm/l/@zdhsoft/nodexlsx?style=for-the-badge" alt="npm license" />
   </a>
-  <a href="https://github.com/mgcrea/node-xlsx/actions/workflows/main.yml">
-    <img src="https://img.shields.io/github/workflow/status/mgcrea/node-xlsx/main?style=for-the-badge" alt="github main workflow" />
-  </a>
 </p>
 
 ## 申明
 - 原node-xlsx不支持样式，所以这里将复fork过来后，更新xlsx库和增加样式的功能。
 - 原来默认使用的是xlsx这个包，现在使用xlsx-js-style替换它，但是这个增加了对样式的支持
 - 增加了能单元格类型的导出。
+
+## 变更记录
+- v0.0.4
+  - 修复没有导出原有xlsx-js-style接口函数的功能
+  - 这个nodexlsx在原有的xlsx-js-style上面，增加了parse, parseMetadata, build三个函数
+  - 增加了nodexlsx属性
+
 ## Features
 
 Straightforward excel file parser and builder.
