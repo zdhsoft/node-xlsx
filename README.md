@@ -17,16 +17,18 @@
   </a>
 </p>
 
-## 申明
-- 原node-xlsx不支持样式，所以这里将复fork过来后，更新xlsx库和增加样式的功能。
-- 原来默认使用的是xlsx这个包，现在使用xlsx-js-style替换它，但是这个增加了对样式的支持
-- 增加了能单元格类型的导出。
+## 申明(statement)
+- 原node-xlsx不支持样式，所以这里将复fork过来后，更新xlsx库和增加样式的功能。(The original node-xlsx does not support styles, so after the fork, it will update the xlsx library and add styles.)
+- 原来默认使用的是xlsx这个包，现在使用xlsx-js-style替换它，但是这个增加了对样式的支持(Originally, the xlsx package was used by default, and now it is replaced by xlsx-js-style, but this adds support for styles)
+- 增加了能单元格类型的导出。(Added ability to export cell types.)
 
-## 变更记录
+## 变更记录(change log)
+- v0.0.5
+  - 增加所有xlsx-js-style中的type与interface的定义(Add the definition of type and interface in all xlsx-js-style)
 - v0.0.4
-  - 修复没有导出原有xlsx-js-style接口函数的功能
-  - 这个nodexlsx在原有的xlsx-js-style上面，增加了parse, parseMetadata, build三个函数
-  - 增加了nodexlsx属性
+  - 修复没有导出原有xlsx-js-style接口函数的功能(Fixed the function of not exporting the original xlsx-js-style interface function)
+  - 这个nodexlsx在原有的xlsx-js-style上面，增加了parse, parseMetadata, build三个函数(his nodexlsx adds three functions: parse, parseMetadata, and build to the original xlsx-js-style)
+  - 增加了nodexlsx属性(Added nodexlsx attribute)
 
 ## Features
 
