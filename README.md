@@ -23,6 +23,8 @@
 - 增加了能单元格类型的导出。(Added ability to export cell types.)
 
 ## 变更记录(change log)
+- v0.1.0
+  - readme增加style api和单元格的样式示例（Readme adds style api and cell style examples）
 - v0.0.5
   - 增加所有xlsx-js-style中的type与interface的定义(Add the definition of type and interface in all xlsx-js-style)
 - v0.0.4
@@ -43,6 +45,99 @@ Straightforward excel file parser and builder.
 ```bash
 npm i @zdhsoft/nodexlsx
 ```
+
+## Style API
+
+### Cell Style Example
+
+```js
+// STEP 1: Create a new workbook
+const wb = XLSX.utils.book_new();
+
+// STEP 2: Create data rows and styles
+let row = [
+	{ v: "Courier: 24", t: "s", s: { font: { name: "Courier", sz: 24 } } },
+	{ v: "bold & color", t: "s", s: { font: { bold: true, color: { rgb: "FF0000" } } } },
+	{ v: "fill: color", t: "s", s: { fill: { fgColor: { rgb: "E9E9E9" } } } },
+	{ v: "line\nbreak", t: "s", s: { alignment: { wrapText: true } } },
+];
+
+// STEP 3: Create worksheet with rows; Add worksheet to workbook
+const ws = XLSX.utils.aoa_to_sheet([row]);
+XLSX.utils.book_append_sheet(wb, ws, "readme demo");
+
+// STEP 4: Write Excel file to browser
+XLSX.writeFile(wb, "xlsx-js-style-demo.xlsx");
+```
+
+### Cell Style Properties
+
+-   Cell styles are specified by a style object that roughly parallels the OpenXML structure.
+-   Style properties currently supported are: `alignment`, `border`, `fill`, `font`, `numFmt`.
+
+| Style Prop  | Sub Prop       | Default     | Description/Values                                                                                |
+| :---------- | :------------- | :---------- | ------------------------------------------------------------------------------------------------- |
+| `alignment` | `vertical`     | `bottom`    | `"top"` or `"center"` or `"bottom"`                                                               |
+|             | `horizontal`   | `left`      | `"left"` or `"center"` or `"right"`                                                               |
+|             | `wrapText`     | `false`     | `true` or `false`                                                                                 |
+|             | `textRotation` | `0`         | `0` to `180`, or `255` // `180` is rotated down 180 degrees, `255` is special, aligned vertically |
+| `border`    | `top`          |             | `{ style: BORDER_STYLE, color: COLOR_STYLE }`                                                     |
+|             | `bottom`       |             | `{ style: BORDER_STYLE, color: COLOR_STYLE }`                                                     |
+|             | `left`         |             | `{ style: BORDER_STYLE, color: COLOR_STYLE }`                                                     |
+|             | `right`        |             | `{ style: BORDER_STYLE, color: COLOR_STYLE }`                                                     |
+|             | `diagonal`     |             | `{ style: BORDER_STYLE, color: COLOR_STYLE, diagonalUp: true/false, diagonalDown: true/false }`   |
+| `fill`      | `patternType`  | `"none"`    | `"solid"` or `"none"`                                                                             |
+|             | `fgColor`      |             | foreground color: see `COLOR_STYLE`                                                               |
+|             | `bgColor`      |             | background color: see `COLOR_STYLE`                                                               |
+| `font`      | `bold`         | `false`     | font bold `true` or `false`                                                                       |
+|             | `color`        |             | font color `COLOR_STYLE`                                                                          |
+|             | `italic`       | `false`     | font italic `true` or `false`                                                                     |
+|             | `name`         | `"Calibri"` | font name                                                                                         |
+|             | `strike`       | `false`     | font strikethrough `true` or `false`                                                              |
+|             | `sz`           | `"11"`      | font size (points)                                                                                |
+|             | `underline`    | `false`     | font underline `true` or `false`                                                                  |
+|             | `vertAlign`    |             | `"superscript"` or `"subscript"`                                                                  |
+| `numFmt`    |                | `0`         | Ex: `"0"` // integer index to built in formats, see StyleBuilder.SSF property                     |
+|             |                |             | Ex: `"0.00%"` // string matching a built-in format, see StyleBuilder.SSF                          |
+|             |                |             | Ex: `"0.0%"` // string specifying a custom format                                                 |
+|             |                |             | Ex: `"0.00%;\\(0.00%\\);\\-;@"` // string specifying a custom format, escaping special characters |
+|             |                |             | Ex: `"m/dd/yy"` // string a date format using Excel's format notation                             |
+
+### `COLOR_STYLE` {object} Properties
+
+Colors for `border`, `fill`, `font` are specified as an name/value object - use one of the following:
+
+| Color Prop | Description       | Example                                                         |
+| :--------- | ----------------- | --------------------------------------------------------------- |
+| `rgb`      | hex RGB value     | `{rgb: "FFCC00"}`                                               |
+| `theme`    | theme color index | `{theme: 4}` // (0-n) // Theme color index 4 ("Blue, Accent 1") |
+| `tint`     | tint by percent   | `{theme: 1, tint: 0.4}` // ("Blue, Accent 1, Lighter 40%")      |
+
+### `BORDER_STYLE` {string} Properties
+
+Border style property is one of the following values:
+
+-   `dashDotDot`
+-   `dashDot`
+-   `dashed`
+-   `dotted`
+-   `hair`
+-   `mediumDashDotDot`
+-   `mediumDashDot`
+-   `mediumDashed`
+-   `medium`
+-   `slantDashDot`
+-   `thick`
+-   `thin`
+
+**Border Notes**
+
+Borders for merged areas are specified for each cell within the merged area. For example, to apply a box border to a merged area of 3x3 cells, border styles would need to be specified for eight different cells:
+
+-   left borders (for the three cells on the left)
+-   right borders (for the cells on the right)
+-   top borders (for the cells on the top)
+-   bottom borders (for the cells on the left)
 
 ## Quickstart
 
